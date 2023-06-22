@@ -12,7 +12,8 @@ state_t state = {NULL, NULL, NULL, 0};
 int engine(stack_t **head, unsigned int line, FILE *bfr, char *info)
 {
 	instruction_t opmap[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
+		{"swap", swap}
 	};
 	unsigned int n = 0;
 	char *instr;
