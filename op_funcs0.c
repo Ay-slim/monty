@@ -65,3 +65,33 @@ void pall(stack_t **head, unsigned int line)
 		tmp = tmp->next;
 	}
 }
+
+/**
+ * pchar - Print character
+ * @head: Pointer to stack head
+ * @line: Monty bytecode line
+ * Return: Nothing
+ */
+void pchar(stack_t **head, unsigned int line)
+{
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
+		fclose(state.bfr);
+		free(state.info);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	if ((*head)->n < 0 || (*head)->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+		fclose(state.bfr);
+		free(state.info);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		printf("%c\n", (char)(*head)->n);
+	}
+}
