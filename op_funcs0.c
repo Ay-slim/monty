@@ -118,3 +118,31 @@ void pstr(stack_t **head, unsigned int line)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl - Rotate stack
+ * @head: Pointer to stack head
+ * @line: Monty bytecode line
+ * Return: Nothing
+ */
+void rotl(stack_t **head, unsigned int line)
+{
+	stack_t *tmp1 = *head;
+	stack_t *tmp2 = *head;
+	stack_t *head_clone = malloc(sizeof(stack_t));
+	(void)line;
+
+	if (!head_clone)
+		return;
+	head_clone->n = (*head)->n;
+	head_clone->next = NULL;
+	*head = tmp1->next;
+        (*head)->prev = NULL;
+	while (tmp1->next)
+	{
+		tmp1 = tmp1->next;
+	}
+	tmp1->next = head_clone;
+	head_clone->prev = tmp1;
+	free(tmp2);
+}

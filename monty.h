@@ -68,6 +68,7 @@ void mul(stack_t **head, unsigned int line);
 void mod(stack_t **head, unsigned int line);
 void pchar(stack_t **head, unsigned int line);
 void pstr(stack_t **head, unsigned int line);
+void rotl(stack_t **head, unsigned int line);
 void push_stack(stack_t **head, int data);
 void push_queue(stack_t **head, int data);
 void free_list(stack_t *head);

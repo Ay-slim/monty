@@ -15,7 +15,7 @@ int engine(stack_t **head, unsigned int line, FILE *bfr, char *info)
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub},
 		{"div", divisor}, {"mul", mul}, {"mod", mod}, {"pchar", pchar},
-		{"pstr", pstr}
+		{"pstr", pstr}, {"rotl", rotl}
 	};
 	unsigned int n = 0;
 	char *instr;
