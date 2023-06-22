@@ -13,7 +13,7 @@ int engine(stack_t **head, unsigned int line, FILE *bfr, char *info)
 {
 	instruction_t opmap[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-		{"swap", swap}
+		{"swap", swap}, {"add", add}
 	};
 	unsigned int n = 0;
 	char *instr;

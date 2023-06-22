@@ -86,3 +86,32 @@ void swap(stack_t **head, unsigned int line)
 		free(head_clone);
 	}
 }
+
+/**
+ * add - Add the top two elements of the stack
+ * @head: Pointer to stack head
+ * @line: Monty bytecode line
+ * Return: Nothing
+ */
+void add(stack_t **head, unsigned int line)
+{
+	stack_t *tmp = *head;
+	int sum;
+
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		fclose(state.bfr);
+		free(state.info);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		sum = (*head)->n + (*head)->next->n;
+		(*head)->next->n = sum;
+		(*head) = (*head)->next;
+		(*head)->prev = NULL;
+		free(tmp);
+	}
+}
