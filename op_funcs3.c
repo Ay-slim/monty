@@ -65,3 +65,32 @@ void divisor(stack_t **head, unsigned int line)
 		free(tmp);
 	}
 }
+
+/**
+ * mul - Multiply the top element by the one below
+ * @head: Pointer to stack head
+ * @line: Monty bytecode line
+ * Return: Nothing
+ */
+void mul(stack_t **head, unsigned int line)
+{
+	stack_t *tmp = *head;
+	int prod;
+
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line);
+		fclose(state.bfr);
+		free(state.info);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		prod = (*head)->next->n * (*head)->n;
+		(*head)->next->n = prod;
+		(*head) = (*head)->next;
+		(*head)->prev = NULL;
+		free(tmp);
+	}
+}
