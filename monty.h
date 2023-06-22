@@ -62,6 +62,7 @@ void pop(stack_t **head, unsigned int line);
 void swap(stack_t **head, unsigned int line);
 void add(stack_t **head, unsigned int line);
 void nop(stack_t **head, unsigned int line);
+void sub(stack_t **head, unsigned int line);
 void push_stack(stack_t **head, int data);
 void push_queue(stack_t **head, int data);
 void free_list(stack_t *head);
