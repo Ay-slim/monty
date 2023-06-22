@@ -57,6 +57,7 @@ typedef struct state_s
 extern state_t state;
 void push(stack_t **head, unsigned int line);
 void pall(stack_t **head, unsigned int line);
+void pint(stack_t **head, unsigned int line);
 void push_stack(stack_t **head, int data);
 void push_queue(stack_t **head, int data);
 void free_list(stack_t *head);
