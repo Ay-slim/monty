@@ -95,3 +95,37 @@ void pchar(stack_t **head, unsigned int line)
 		printf("%c\n", (char)(*head)->n);
 	}
 }
+
+/**
+ * pstr - Print strings
+ * @head: Pointer to stack head
+ * @line: Monty bytecode line
+ * Return: Nothing
+ */
+void pstr(stack_t **head, unsigned int line)
+{
+	stack_t *tmp = *head;
+	(void)line;
+
+	if (*head == NULL)
+	{
+		printf("\n");
+		fclose(state.bfr);
+		free(state.info);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	while (tmp && tmp->n > 0 && tmp->n <= 127)
+	{
+		if (tmp->next == NULL || tmp->next->n <= 0 || tmp->next->n > 127)
+		{
+			printf("%c\n", (char)tmp->n);
+			fclose(state.bfr);
+			free(state.info);
+			free_list(*head);
+			exit(EXIT_FAILURE);
+		}
+		printf("%c", (char)tmp->n);
+		tmp = tmp->next;
+	}
+}
