@@ -115,3 +115,15 @@ void add(stack_t **head, unsigned int line)
 		free(tmp);
 	}
 }
+
+/**
+ * nop - Do nothing
+ * @head: Pointer to stack head
+ * @line: Monty bytecode line
+ * Return: Nothing
+ */
+void nop(stack_t **head, unsigned int line)
+{
+	(void)head;
+	(void)line;
+}
